@@ -79,15 +79,15 @@ if __name__ == '__main__':
         for location in us_locations:
             for level in levels:
                 print(f"Buscando vagas para '{keyword}' in '{location}' at level '{level}'...")
-                jobs = run(keyword, location, level, 1, insert_jobs=True)
+                jobs = run(keyword, location, level, 100, insert_jobs=True)
                 all_jobs.append(jobs)
 
-    # # Busca para vagas no Brasil
-    # for keyword in pt_keywords:
-    #     for location in pt_locations:
-    #         for level in levels:
-    #             print(f"Buscando vagas para '{keyword}' em '{location}' no nível '{level}'...")
-    #             run(keyword, location, level, 100, insert_jobs=True)
+    # Busca para vagas no Brasil
+    for keyword in pt_keywords:
+        for location in pt_locations:
+            for level in levels:
+                print(f"Buscando vagas para '{keyword}' em '{location}' no nível '{level}'...")
+                run(keyword, location, level, 100, insert_jobs=True)
 
 
     print(f"Tempo total de execução: {time.time() - start:.2f} segundos.")

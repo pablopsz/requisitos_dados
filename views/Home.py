@@ -2,7 +2,7 @@ import streamlit as st
 import altair as alt
 import pandas as pd
 
-from views.data_view.skills_count import raw_data 
+from views.data_view.get_data import raw_data 
 
 st.set_page_config(page_title="Análise de Requisitos", layout="centered", page_icon=":computer:")
 

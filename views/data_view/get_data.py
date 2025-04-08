@@ -36,23 +36,5 @@ def parse_skills(
     return [skill.strip() for skill in skills_str.split(',')]
 
 
-def skills_count(
-    raw_df: pd.DataFrame
-) -> pd.DataFrame:
-    raw_df = raw_df.copy()  # Corrigido para evitar erro
-    exploded_df = raw_df.explode('jobs_hardSkills')
-    # Agrupa por 'jobs_hardSkills' e 'jobs_keyword' e conta as ocorrências
-    grouped_df = exploded_df.groupby(['jobs_hardSkills', 'jobs_keyword']).size().reset_index(name='count')
-    grouped_df = grouped_df.sort_values(by='count', ascending=False).reset_index(drop=True)
-    grouped_df = grouped_df.reset_index(drop=True)
-    return grouped_df
-
-'''
-    exploded_df = jobs.explode('jobs_hardSkills')
-    # Agrupa por 'jobs_hardSkills' e 'jobs_keyword' e conta as ocorrências
-    grouped_df = exploded_df.groupby(['jobs_hardSkills', 'jobs_keyword']).size().reset_index(name='count')
-    grouped_df = grouped_df.sort_values(by='count', ascending=False).reset_index(drop=True)
-'''
-
 if __name__ == "__main__":
     ...
